@@ -13,7 +13,7 @@
 
             <v-card-text>
             <v-window v-model="tab">
-            <v-form>
+            <v-form @submit="onSubmitSurvey"> 
                 <v-window-item value="one">
                 <v-card
                 title="Health and Safety"
@@ -24,7 +24,10 @@
                                 <v-col cols="12"
                                 md="4">
                                 <v-select
+                                v-model="province_id"
                                 :items="provinces"
+                                item-title="text"
+                                item-value="value"
                                 label="Province"
                                 ></v-select>
                                 </v-col>
@@ -435,11 +438,16 @@
     </div>
 </template>
 <script>
+import { AxiosError, AdminSurveyService,} from '@/services'
 export default {
     data () {
         return {
             tab: null,
-            provinces: ['Isabela', 'Quirino', 'Cagayan', 'Nueva Ecija'],
+            province_id:null,
+            provinces: [
+                {text: 'Isabela', value:1},
+                {text: 'Quirino', value:2}
+            ],
             municipalities:['San Isidro','Alicia','Echague'],
             barangays:['Gomez','Rizal East','San Fabian'],
             weathers:['Sunny and Dry','Raining','High Winds and Raining','Flooding and Unreachable'],
@@ -497,19 +505,24 @@ export default {
             houseyousee:'',
             isapproach:['Yes','No'],
             asksaid:''
-
-
-
-
-
-
-
-
-
-
-
-
-    
+        }
+    },
+    methods:{
+         onSubmitSurvey(e){
+            e.preventDefault()
+            const survey = {
+                provinceId: this.province_id
+            }
+            AdminSurveyService.post(survey).then(response => {
+                console.log(response);
+        }).catch(error => {
+            if (error instanceof AxiosError) {
+            if (error.code === 422) {
+                this.$refs.form.setErrors(error.message)
+            }
+            }
+            this.isBusy = false
+        })
         }
     }
 }

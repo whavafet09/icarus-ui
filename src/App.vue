@@ -21,7 +21,6 @@
             <v-list-item
             v-for="[icon, text, url] in links"
             :key="icon"
-            link
             :to="url"
             >
             <template v-slot:prepend>
