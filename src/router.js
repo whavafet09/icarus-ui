@@ -25,10 +25,22 @@ const router = createRouter({
             ]
         },
         {
-            path: '/prelandsurvey', component:PreLandSurvey
+            path: '/prelandsurvey', 
+            component:PreLandSurvey,
+            name: 'prelandsurvey',
+            props: true
         },
         {
-            path: '/prelandsurveyforms', component:PreLandSurveyForms
+            path: '/prelandsurveyforms', 
+            component:PreLandSurveyForms,
+            name: 'prelandsurveyforms',
+            props: true
+        },
+        {
+            path: '/prelandsurveyforms/:prelandcardId', 
+            component:PreLandSurveyForms,
+            name: 'prelandsurveyformsCard',
+            props: true
         },
         {
             path: '/prelandsurveydetails', component:PreLandSurveyDetails

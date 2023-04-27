@@ -28,6 +28,7 @@
 
                 </template>
                 <v-card>
+                  <v-form @submit.prevent="onSubmitSurveyCard()">
                   <v-card-title>
                     <span class="text-h5">Create Pre Land Survey</span>
                   </v-card-title>
@@ -37,12 +38,11 @@
                         <v-col
                           cols="12"
                         >
-                        <v-form @submit.prevent>
+                       
                           <v-text-field
                             v-model="prelandsurveyName"
                             label="Pre Land Survey Name"
                           ></v-text-field>
-                        </v-form>
                         </v-col>
                       </v-row>
                     </v-container>
@@ -59,11 +59,12 @@
                     <v-btn
                       color="blue-darken-1"
                       variant="text"
-                      @click="onSubmit()"
+                      type="submit"
                     >
                       Save
                     </v-btn>
                   </v-card-actions>
+                </v-form>
                 </v-card>
               </v-dialog>
             </v-row>
@@ -72,10 +73,10 @@
             <v-divider></v-divider>
             <div>
               <v-row no-gutters>
-                <v-col cols="12" sm="4" v-for="item in items" :key="item">
+                <v-col cols="12" sm="4" v-for="item in prelandsurveyheaders" :key="item.value">
                   <v-sheet class="pa-2 ma-2">
                     <v-card
-                    :title="item"
+                    :subtitle="item.text"
                     >
                     <v-row>
                         <v-col cols="12" sm="6">
@@ -91,13 +92,16 @@
                         </v-col>
                         <v-col ccols="12" sm="6">
                           <v-card-actions>
+                            <router-link :to="{name: 'prelandsurveyformsCard',params:{prelandcardId:item.value}}">
                             <v-btn
-                              variant="text"
-                              color="blue-accent-4"
-                              to="/prelandsurveyforms"
-                            >
-                              Add Details
-                            </v-btn>
+                                variant="text"
+                                color="blue-accent-4"
+                              >
+                                Add Details
+                              </v-btn>
+                            </router-link>
+
+                            
                           </v-card-actions>
                         </v-col>
                     </v-row>
@@ -111,20 +115,53 @@
 </div>
 </template>
 <script>
+import { AxiosError, AdminHeaderSurveyService,} from '@/services'
 export default {
     data () {
         return {
             title:'',
             dialog: false,
             prelandsurveyName:'',
-            items:['Pre Land Survey 01','Pre Land Survey 02', 'Pre Land Survey 03']
+            prelandsurveyheaders:[]
         }
     },
+    mounted(){
+      this.fetchPreLandSurveyHeader()
+    },
     methods:{
-      onSubmit(){
-        this.items.push(this.prelandsurveyName)
-        this.prelandsurveyName = ''
-        console.log(this.items)
+      async fetchPreLandSurveyHeader () {
+      this.salespersons = []
+      await AdminHeaderSurveyService.get().then(({ data }) => {
+        console.log(data);
+        data.forEach(item => {
+          this.prelandsurveyheaders.push({
+            value: item.id,
+            text: item.preLandSurveyCode
+          })
+        })
+      })
+    },
+      async onSubmitSurveyCard(){
+        const obj ={
+          PreLandSurveyCode:this.prelandsurveyName,
+          UserId:1,
+          Status:true,
+          Active:true
+        }
+       await AdminHeaderSurveyService.post(obj).then(response => {
+                console.log(response);
+                alert("Successfully Save");
+                this.prelandsurveyName = ''
+                this.dialog = false
+                
+        }).catch(error => {
+            if (error instanceof AxiosError) {
+            if (error.code === 422) {
+                this.$refs.form.setErrors(error.message)
+            }
+            }
+            this.isBusy = false
+        })
       }
     }
 

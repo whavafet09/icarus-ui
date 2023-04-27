@@ -5,7 +5,7 @@ const ApiService = {
 
   get (resource) {
     return new Promise((resolve, reject) => {
-      axios.get(`${process.env.VUE_APP_API_URL}/${resource}`)
+      axios.get(`https://localhost:7131/api/${resource}`)
         .then(response => {
           resolve(response)
         })
@@ -29,7 +29,7 @@ const ApiService = {
 
   put (resource, payload) {
     return new Promise((resolve, reject) => {
-      axios.put(`${process.env.VUE_APP_API_URL}/${resource}`, payload)
+      axios.put(`https://localhost:7131/api/${resource}`, payload)
         .then(response => {
           resolve(response)
         })
@@ -41,7 +41,7 @@ const ApiService = {
 
   delete (resource) {
     return new Promise((resolve, reject) => {
-      axios.delete(`${process.env.VUE_APP_API_URL}/${resource}`)
+      axios.delete(`https://localhost:7131/api/${resource}`)
         .then(response => {
           resolve(response)
         })

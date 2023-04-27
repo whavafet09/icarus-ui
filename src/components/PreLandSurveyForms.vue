@@ -34,14 +34,20 @@
                                 <v-col cols="12"
                                 md="4">
                                 <v-select
+                                v-model="municipality_id"
                                 :items="municipalities"
+                                item-title="text"
+                                item-value="value"
                                 label="Municipality"
                                 ></v-select>
                                 </v-col>
                                 <v-col cols="12"
                                 md="4">
                                 <v-select
+                                v-model="barangay_id"
                                 :items="barangays"
+                                item-title="text"
+                                item-value="value"
                                 label="Barangay"
                                 ></v-select>
                                 </v-col>
@@ -58,7 +64,10 @@
                                 <v-col cols="12"
                                 md="4">
                                 <v-select
+                                v-model="weather_id"
                                 :items="weathers"
+                                item-title="text"
+                                item-value="value"
                                 label="Weather Visited"
                                 ></v-select>
                                 </v-col>
@@ -88,7 +97,10 @@
                                 <v-col cols="12"
                                 md="4">
                                 <v-select
+                                v-model="isVisited_id"
                                 :items="isVisited"
+                                item-title="text"
+                                item-value="value"
                                 label="Can you proceed to visit the area"
                                 ></v-select>
                                 </v-col>
@@ -106,14 +118,20 @@
                                 <v-col cols="12"
                                 md="4">
                                 <v-select
+                                v-model="cellreception_id"
                                 :items="cellreception"
+                                item-title="text"
+                                item-value="value"
                                 label="Is there a cell reception ( safety reason ) "
                                 ></v-select>
                                 </v-col>
                                 <v-col cols="12"
                                 md="4">
                                 <v-select
-                                :items="safearea"
+                                v-model="safeareas_id"
+                                :items="safeareas"
+                                item-title="text"
+                                item-value="value"
                                 label="Is it safe to proceed to the area"
                                 ></v-select>
                                 </v-col>
@@ -122,6 +140,7 @@
                                 md="4"
                                 >
                                 <v-file-input
+                                    v-model="healthsafile"
                                     show-size
                                     counter
                                     multiple
@@ -144,21 +163,30 @@
                                 <v-col cols="12"
                                 md="4">
                                 <v-select
+                                v-model="topographylands_id"
                                 :items="topographylands"
+                                item-title="text"
+                                item-value="value"
                                 label="Topography of the land  "
                                 ></v-select>
                                 </v-col>
                                 <v-col cols="12"
                                 md="4">
                                 <v-select
+                                v-model="typelands_id"
                                 :items="typelands"
+                                item-title="text"
+                                item-value="value"
                                 label="Type of Land"
                                 ></v-select>
                                 </v-col>
                                 <v-col cols="12"
                                 md="4">
                                 <v-select
+                                v-model="visiblelands_id"
                                 :items="visiblelands"
+                                item-title="text"
+                                item-value="value"
                                 label="What is visible on the land "
                                 ></v-select>
                                 </v-col>
@@ -175,14 +203,20 @@
                                 <v-col cols="12"
                                 md="4">
                                 <v-select
+                                v-model="historicals_id"
                                 :items="historicals"
+                                item-title="text"
+                                item-value="value"
                                 label="Historical nature "
                                 ></v-select>
                                 </v-col>
                                 <v-col cols="12"
                                 md="4">
                                 <v-select
+                                v-model="fencings_id"
                                 :items="fencings"
+                                item-title="text"
+                                item-value="value"
                                 label="Fencing"
                                 ></v-select>
                                 </v-col>
@@ -190,7 +224,10 @@
                                 cols="12"
                                 md="4">
                                 <v-select
+                                v-model="roadaccess_id"
                                 :items="roadaccess"
+                                item-title="text"
+                                item-value="value"
                                 label="Road Access "
                                 ></v-select>
                                 </v-col>
@@ -209,6 +246,7 @@
                                 md="4"
                                 >
                                 <v-file-input
+                                    v-model="landdescfile"
                                     show-size
                                     counter
                                     multiple
@@ -231,7 +269,10 @@
                                     <v-col cols="12"
                                     md="4">
                                     <v-select
+                                    v-model="accessareas_id"
                                     :items="accessareas"
+                                    item-title="text"
+                                    item-value="value"
                                     label="How did you access the area"
                                     ></v-select>
                                     </v-col>
@@ -250,7 +291,10 @@
                                     <v-col cols="12"
                                     md="4">
                                     <v-select
+                                    v-model="powerlinesnear_id"
                                     :items="powerlinesnear"
+                                    item-title="text"
+                                    item-value="value"
                                     label="Is there any power lines near by "
                                     ></v-select>
                                     </v-col>
@@ -286,7 +330,10 @@
                                     cols="12"
                                     md="4">
                                     <v-select
+                                    v-model="isriverrunning_id"
                                     :items="isriverrunning"
+                                    item-title="text"
+                                    item-value="value"
                                     label="Is there a river running through the property "
                                     ></v-select>
                                     </v-col>
@@ -303,7 +350,10 @@
                                     <v-col cols="12"
                                     md="4">
                                     <v-select
+                                    v-model="networkreception_id"
                                     :items="networkreception"
+                                    item-title="text"
+                                    item-value="value"
                                     label="Cell phone reception "
                                     ></v-select>
                                     </v-col>
@@ -313,6 +363,7 @@
                                     md="4"
                                     >
                                     <v-file-input
+                                        v-model="utilityfile"
                                         show-size
                                         counter
                                         multiple
@@ -335,7 +386,10 @@
                                     <v-col cols="12"
                                     md="4">
                                     <v-select
+                                    v-model="communitynear_id"
                                     :items="communitynear"
+                                    item-title="text"
+                                    item-value="value"
                                     label="Is there a community near by "
                                     ></v-select>
                                     </v-col>
@@ -343,7 +397,10 @@
                                     <v-col cols="12"
                                     md="4">
                                     <v-select
+                                    v-model="communityfall_id"
                                     :items="communityfall"
+                                    item-title="text"
+                                    item-value="value"
                                     label="Does the community fall within the land"
                                     ></v-select>
                                     </v-col>
@@ -360,7 +417,10 @@
                                     <v-col cols="12"
                                     md="4">
                                     <v-select
+                                    v-model="communitytype_id"
                                     :items="communitytype"
+                                    item-title="text"
+                                    item-value="value"
                                     label="Is the community ( what type ) "
                                     ></v-select>
                                     </v-col>
@@ -395,7 +455,10 @@
                                     cols="12"
                                     md="4">
                                     <v-select
+                                    v-model="isapproach_id"
                                     :items="isapproach"
+                                    item-title="text"
+                                    item-value="value"
                                     label="Have you been approach ( by locals "
                                     ></v-select>
                                     </v-col>
@@ -413,6 +476,7 @@
                                     md="4"
                                     >
                                     <v-file-input
+                                        v-model="communityfile"
                                         show-size
                                         counter
                                         multiple
@@ -439,82 +503,215 @@
 </template>
 <script>
 import { AxiosError, AdminSurveyService,} from '@/services'
-export default {
+export default{
     data () {
         return {
             tab: null,
-            province_id:null,
+            province_id:1,
+            weather_id:1,
+            municipality_id:1,
+            barangay_id:1,
             provinces: [
                 {text: 'Isabela', value:1},
                 {text: 'Quirino', value:2}
             ],
-            municipalities:['San Isidro','Alicia','Echague'],
-            barangays:['Gomez','Rizal East','San Fabian'],
-            weathers:['Sunny and Dry','Raining','High Winds and Raining','Flooding and Unreachable'],
-            isVisited:['Yes','No'],
-            cellreception:['Yes','No','Maybe'],
-            safearea:['Yes','No'],
-            shortcodemaps: '',
-            dateattend: '',
-            timearrived: '',
-            temparrived:'',
-            landmark:'',
+            municipalities:[
+                {text:'San Isidro', value:1 },
+                {text:'Alicia', value:2},
+                {text:'Echague', value:3}
+            ],
+            barangays:[
+                {text:'Gomez', value:1 },
+                {text:'Rizal East', value:2},
+                {text:'San Fabian', value:3}
+            ],
+            weathers:[
+                {text:'Sunny and Dry', value:1 },
+                {text:'Raining', value:2},
+                {text:'Flooding and Unreachable', value:3}
+            ],
+            isVisited_id:1,
+            isVisited:[
+                {text:'Yes' , value:1},
+                {text:'No', value:0}
+            ],
+            cellreception_id:1,
+            cellreception:[
+                {text:'Yes' , value:1},
+                {text:'No', value:2},
+                {text:'Maybe', value:3}
+            ],
+            safeareas_id:1,
+            safeareas:[                
+                {text:'Yes' , value:1},
+                {text:'No', value:0}],
+            shortcodemaps: 'test',
+            dateattend: "04/27/2023",
+            timearrived: '10:30',
+            temparrived:'30',
+            landmark:'test',
+            topographylands_id:1,
             topographylands:[
-                'Flat',
-                'Rolling Hills',
-                'Mountains',
-                'Part Flat and Steep Inclines'
+                {text:'Flat', value:1},
+                {text:'Rolling Hills', value:2},
+                {text:'Mountains', value:3},
+                {text:'Part Flat and Steep Inclines', value:4}
             ],
-            typelands:['Rice Land',
-                'Corn Land',
-                'Farmed land but not used ( visible farming of some kind )',
-                'Industrial Land'
+            typelands_id:1,
+            typelands:[
+                {text:'Rice Land', value:1},
+                {text:'Corn Land', value:2},
+                {text:'Farmed land but not used ( visible farming of some kind )', value:3},
+                {text:'Industrial Land',value:4}
             ],
-            visiblelands:['Trees / fruit trees',
-                'grass and low level',
-                'natural forest but not forest zone ( possible growing of trees but not protected )',
-                'Brush and low level trees ( not significant )'
+            visiblelands_id:1,
+            visiblelands:[
+                {text:'Trees / fruit trees', value:1},
+                {text:'grass and low level', value:2},
+                {text:'natural forest but not forest zone ( possible growing of trees but not protected )', value:3},
+                {text:'Brush and low level trees ( not significant )',value:4}    
             ],
+            potentialuse:'potential use test',
+            historicals_id:1,
             historicals:[
-                'Visbility of any local tribal settlement',
-                'Churches or churches of different religion',
-                'Local indengious tribal presence',
-                'Burial ground or visibility of any settlement'],
-            fencings:['Yes','No'],
-            roadaccess:['Yes','No'],
-            accessareas:[
-                'took concrete road to edge of site',
-                'no road - walked x distance to the site',
-                'gravel path and track from main road',
-                'no road no path -  across un made area'
+                {text:'Visbility of any local tribal settlement', value:1},
+                {text:'Churches or churches of different religion', value:2},
+                {text:'Local indengious tribal presence', value:3},
+                {text:'Burial ground or visibility of any settlement',value:4}
             ],
-            distancefromroad:'',
-            powerlinesnear:[],
-            powelinessize:'',
-            powerlinedistance:'',
-            nearestsubstation:'',
-            isriverrunning:['Yes','No'],
-            rivername:'',
-            networkreception:['Smart','Globe','Dito'],
-            communitynear:['Yes','No'],
-            communityfall:['Yes','No'],
-            isyescommunity:'',
-            communitytype:['Tribal','Native','Local'],
-            brgycaptainname:'',
-            chieftain:'',
-            houseyousee:'',
-            isapproach:['Yes','No'],
-            asksaid:''
+            fencings_id:1,
+            fencings:[
+                {text:'Yes' , value:1},
+                {text:'No', value:0}
+            ],
+            roadaccess_id:1,
+            roadaccess:[
+                {text:'Yes' , value:1},
+                {text:'No', value:0}
+            ],
+            accessareas_id:1,
+            accessareas:[
+                {text:'took concrete road to edge of site', value:1},
+                {text:'no road - walked x distance to the site', value:2},
+                {text:'gravel path and track from main road', value:3},
+                {text:'no road no path -  across un made area',value:4}
+            ],
+            distancefromroad:'20',
+            powerlinesnear_id:1,
+            powerlinesnear:[
+                {text:'Yes' , value:1},
+                {text:'No', value:0}
+            ],
+            powelinessize:'24',
+            powerlinedistance:'22',
+            nearestsubstation:'2',
+            isriverrunning_id:1,
+            isriverrunning:[
+                {text:'Yes' , value:1},
+                {text:'No', value:0}
+            ],
+            rivername:'test',
+            networkreception_id:1,
+            networkreception:[
+                {text:'Smart' , value:1},
+                {text:'Globe', value:2},
+                {text:'Dito', value:3}
+            ],
+            communitynear_id:1,
+            communitynear:[
+                {text:'Yes' , value:1},
+                {text:'No', value:0}
+            ],
+            communityfall_id:1,
+            communityfall:[
+                {text:'Yes' , value:1},
+                {text:'No', value:0}
+            ],
+            isyescommunity:'tst',
+            communitytype_id:1,
+            communitytype:[
+                {text:'Tribal' , value:1},
+                {text:'Native', value:2},
+                {text:'Local', value:3}    
+            ],
+            brgycaptainname:'dd',
+            chieftain:'cc',
+            houseyousee:'5',
+            isapproach_id:1,
+            isapproach:[
+                {text:'Yes' , value:1},
+                {text:'No', value:0}
+            ],
+            asksaid:'test',
+            healthsafile:null,
+            landdescfile:null,
+            utilityfile:null,
+            communityfile:null
+
         }
+    },
+    mounted(){
+        // alert(this.$route.params.prelandcardId)
     },
     methods:{
          onSubmitSurvey(e){
             e.preventDefault()
-            const survey = {
-                provinceId: this.province_id
-            }
-            AdminSurveyService.post(survey).then(response => {
+
+
+            const formData = new FormData();
+            this.healthsafile.forEach(x => {
+                formData.append("healthSAFile",x);
+            })
+            this.landdescfile.forEach(x => {
+                formData.append("landDescFile",x);
+            })
+            this.utilityfile.forEach(x => {
+                formData.append("utilityFile",x);
+            })
+            this.communityfile.forEach(x => {
+                formData.append("communityFile",x);
+            })
+
+            formData.append("Provinceid",this.province_id)
+            formData.append("MunicipalityId",this.municipality_id)
+            formData.append("BarangayId",this.barangay_id)
+            formData.append("WeatherVisitedId",this.weather_id)
+            formData.append("DateAttend",this.dateattend)
+            formData.append("TimeArrival",this.timearrived)
+            formData.append("CallReception", this.cellreception_id)
+            formData.append("IsSafeProceedArea",this.safeareas_id)
+            formData.append("TopographyLandId",this.topographylands_id)
+            formData.append("TypeOfLandId",this.typelands_id)
+            formData.append("VisibleOnLandId",this.visiblelands_id)
+            formData.append("HistoricalNatureId",this.historicals_id)
+            formData.append("Fencing",this.fencings_id)
+            formData.append("GateRoadAccess",this.roadaccess_id)
+            formData.append("LandMark",this.landmark)     
+            formData.append("AccessAreaId",this.accessareas_id)
+            formData.append("DistanceFromRoad",this.distancefromroad)
+            formData.append("IsNearPowerLines",this.powerlinesnear_id)
+            formData.append("IsRiverRunning",this.isriverrunning_id)
+            formData.append("RiverName",this.rivername)
+            formData.append("CellReceptionName",this.networkreception_id)
+            formData.append("CommunityNearby",this.communitynear_id)
+            formData.append("CommunityFallLand",this.communityfall_id)
+            formData.append("CommunityTypeId",this.communitytype_id)
+            formData.append("BarangayCaptain",this.brgycaptainname)
+            formData.append("LocalChieftain",this.chieftain)
+            formData.append("HouseNumYouSee",this.houseyousee)
+            formData.append("IsApproachByLocal",this.isapproach_id)
+            formData.append("IsSaidAndAskLocal",this.asksaid)
+            formData.append("PotentialUseLandFuture",this.potentialuse)
+            formData.append("NearestSubstation",this.nearestsubstation)
+            formData.append("ShortCodeMap",this.shortcodemaps)
+            formData.append("SizCommuPopulation",this.isyescommunity)
+            formData.append("SizePowerLine",this.powelinessize)
+            formData.append("TemperatureArrived",this.temparrived)
+            formData.append("PreLandSurveyId",this.$route.params.prelandcardId)
+
+            AdminSurveyService.post(formData).then(response => {
                 console.log(response);
+                alert("Successfully save details")
         }).catch(error => {
             if (error instanceof AxiosError) {
             if (error.code === 422) {
