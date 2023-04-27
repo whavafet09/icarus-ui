@@ -14,15 +14,17 @@
             </v-card-title>
 
                 <v-card-text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis luctus felis, sed tincidunt nisl ultrices et. 
-                    Vivamus blandit vulputate fermentum. Cras eu nibh in quam sodales lacinia vel id erat. Curabitur in suscipit ex. Lorem 
-                    ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula iaculis turpis in vulputate. Quisque scelerisque risus
-                    non pharetra aliquet. Fusce pharetra dapibus tincidunt.Fusce dictum, ex a sagittis auctor, est odio tristique neque, 
-                    a commodo magna augue tristique ante. Integer dapibus ornare quam ut bibendum. Quisque iaculis orci nec justo condimentum, 
-                    nec scelerisque justo laoreet. Nam volutpat est non condimentum pharetra. Integer et mollis purus, et scelerisque nisi. 
-                    Phasellus molestie tortor sit amet posuere sagittis. In venenatis congue tellus, vel rutrum arcu porta sed. Mauris ipsum 
-                    turpis, cursus interdum eleifend ut, feugiat quis ex. Donec lacinia ullamcorper tellus sed scelerisque. Nulla facilisi.
-                    Nulla iaculis mattis enim, non sodales purus facilisis eget. Sed odio ex, scelerisque nec feugiat mattis, finibus et mi.
+                    <h3>Provinces : {{ province }}</h3>
+                    <h3>Municipality : {{ municipality }}</h3>
+                    <h3>Barangay : {{ barangay }}</h3>
+                    <h3>Short code - google maps : {{ short_code }} </h3>
+                    <h3>What is the weather when you visited : {{ weather }}</h3>
+                    <h3>Date you attend : </h3>
+                    <h3>Time of arrival : </h3>
+                    <h3>Can you proceed to visit the area : </h3>
+                    <h3>Temperature of area when you arrived : </h3>
+                    <h3>Is there a cell reception ( safety reason ) : </h3>
+                    <h3>Is it safe to proceed to the area : </h3>
                 </v-card-text>
 
             <v-card-actions>
@@ -73,6 +75,7 @@
                 </v-card>
                 </v-expand-transition>
           </v-card>
+          <br>
           <v-card
           >
             <v-card-title class="text-h5">
@@ -80,15 +83,14 @@
             </v-card-title>
 
                 <v-card-text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis luctus felis, sed tincidunt nisl ultrices et. 
-                    Vivamus blandit vulputate fermentum. Cras eu nibh in quam sodales lacinia vel id erat. Curabitur in suscipit ex. Lorem 
-                    ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula iaculis turpis in vulputate. Quisque scelerisque risus
-                    non pharetra aliquet. Fusce pharetra dapibus tincidunt.Fusce dictum, ex a sagittis auctor, est odio tristique neque, 
-                    a commodo magna augue tristique ante. Integer dapibus ornare quam ut bibendum. Quisque iaculis orci nec justo condimentum, 
-                    nec scelerisque justo laoreet. Nam volutpat est non condimentum pharetra. Integer et mollis purus, et scelerisque nisi. 
-                    Phasellus molestie tortor sit amet posuere sagittis. In venenatis congue tellus, vel rutrum arcu porta sed. Mauris ipsum 
-                    turpis, cursus interdum eleifend ut, feugiat quis ex. Donec lacinia ullamcorper tellus sed scelerisque. Nulla facilisi.
-                    Nulla iaculis mattis enim, non sodales purus facilisis eget. Sed odio ex, scelerisque nec feugiat mattis, finibus et mi.
+                    <h3>Topography of the land :</h3>
+                    <h3>Type of land :</h3>
+                    <h3>Potential use of the land in the future :</h3>
+                    <h3>What is visible on the land :</h3>
+                    <h3>Historical nature :</h3>
+                    <h3>Fencing :</h3>
+                    <h3>Gate access or road access :</h3>
+                    <h3>Any key land marks :</h3>
                 </v-card-text>
 
             <v-card-actions>
@@ -139,6 +141,7 @@
                 </v-card>
                 </v-expand-transition>
           </v-card>
+          <br>
           <v-card
           >
             <v-card-title class="text-h5">
@@ -146,15 +149,15 @@
             </v-card-title>
 
                 <v-card-text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis luctus felis, sed tincidunt nisl ultrices et. 
-                    Vivamus blandit vulputate fermentum. Cras eu nibh in quam sodales lacinia vel id erat. Curabitur in suscipit ex. Lorem 
-                    ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula iaculis turpis in vulputate. Quisque scelerisque risus
-                    non pharetra aliquet. Fusce pharetra dapibus tincidunt.Fusce dictum, ex a sagittis auctor, est odio tristique neque, 
-                    a commodo magna augue tristique ante. Integer dapibus ornare quam ut bibendum. Quisque iaculis orci nec justo condimentum, 
-                    nec scelerisque justo laoreet. Nam volutpat est non condimentum pharetra. Integer et mollis purus, et scelerisque nisi. 
-                    Phasellus molestie tortor sit amet posuere sagittis. In venenatis congue tellus, vel rutrum arcu porta sed. Mauris ipsum 
-                    turpis, cursus interdum eleifend ut, feugiat quis ex. Donec lacinia ullamcorper tellus sed scelerisque. Nulla facilisi.
-                    Nulla iaculis mattis enim, non sodales purus facilisis eget. Sed odio ex, scelerisque nec feugiat mattis, finibus et mi.
+                    <h3>How did you access the area :</h3>
+                    <h3>What is the distance you travelled ( meters ) from road :</h3>
+                    <h3>Is there any power lines near by :</h3>
+                    <h3>Size of power lines are they ( guesstimate of meters ) :</h3>
+                    <h3>how are far are the power line from the area ( site ) :</h3>
+                    <h3>Where is the nearest substation ( town ) :</h3>
+                    <h3>Is there a river running through the property :</h3>
+                    <h3>Name ( if known ) of river :</h3>
+                    <h3>Cell phone reception :</h3>
                 </v-card-text>
 
             <v-card-actions>
@@ -205,6 +208,7 @@
                 </v-card>
                 </v-expand-transition>
           </v-card>
+          <br>
           <v-card
           >
             <v-card-title class="text-h5">
@@ -212,15 +216,16 @@
             </v-card-title>
 
                 <v-card-text>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam facilisis luctus felis, sed tincidunt nisl ultrices et. 
-                    Vivamus blandit vulputate fermentum. Cras eu nibh in quam sodales lacinia vel id erat. Curabitur in suscipit ex. Lorem 
-                    ipsum dolor sit amet, consectetur adipiscing elit. Curabitur vehicula iaculis turpis in vulputate. Quisque scelerisque risus
-                    non pharetra aliquet. Fusce pharetra dapibus tincidunt.Fusce dictum, ex a sagittis auctor, est odio tristique neque, 
-                    a commodo magna augue tristique ante. Integer dapibus ornare quam ut bibendum. Quisque iaculis orci nec justo condimentum, 
-                    nec scelerisque justo laoreet. Nam volutpat est non condimentum pharetra. Integer et mollis purus, et scelerisque nisi. 
-                    Phasellus molestie tortor sit amet posuere sagittis. In venenatis congue tellus, vel rutrum arcu porta sed. Mauris ipsum 
-                    turpis, cursus interdum eleifend ut, feugiat quis ex. Donec lacinia ullamcorper tellus sed scelerisque. Nulla facilisi.
-                    Nulla iaculis mattis enim, non sodales purus facilisis eget. Sed odio ex, scelerisque nec feugiat mattis, finibus et mi.
+                    <h3>Is there a community near by :</h3>
+                    <h3>Does the community fall within the land :</h3>
+                    <h3>If yes. What is the size of the community ( in population) :</h3>
+                    <h3>Is the community ( what type ) :</h3>
+                    <h3>Who is barangay captain of the area (if known) :</h3>
+                    <h3>Who is local chieftain ( tribal if applicable) :</h3>
+                    <h3>How many houses can you see ( if applicable ) :</h3>
+                    <h3>Have you been approach ( by locals ) :</h3>
+                    <h3>If applicable ( what was said and asked ) :</h3>
+                    <h3></h3>
                 </v-card-text>
 
             <v-card-actions>
@@ -273,12 +278,21 @@
           </v-card>
         </v-col>
       </v-row>
+      <br>
+      <div>
+        <v-row>
+            <v-col cols="12" md="6" xs="3">
+                <v-btn style="margin-right: 20px; background-color:green;color:white;">Approved</v-btn>
+                <v-btn class="red" style="background-color:red;color:white;">Reject</v-btn>
+            </v-col>
+        </v-row>
+      </div>
     </v-container>
   </v-card>
 </div>
 </template>
 <script>
-
+import { AdminSurveyService,} from '@/services'
 export default {
     components:{
         
@@ -289,10 +303,38 @@ export default {
             reveal2: false,
             reveal3: false,
             reveal4: false,
+            province:'',
+            municipality:'',
+            barangay:'',
+            short_code:'',
+            weather:'',
+            prelandsurveydetails:[]
+            
 
         }
         
     },
+    mounted() {
+        this.fetchPreLandSurveyDetails()
+    },
+    methods:{
+        async fetchPreLandSurveyDetails () {
+            const obj = {
+                Id:this.$route.params.prelandcardId
+            }
+        await AdminSurveyService.get(obj).then(({ data }) => {
+            this.province = data[0].provinces.provinceName
+            this.municipality = data[0].municipalities.municipalityName
+            this.barangay = data[0].barangays.barangayName
+            this.short_code = data[0].shorthCode
+            this.weather = data[0].weather.weatherDescription
+            console.log(data);
+            // this.prelandsurveydetails.push(data)
+
+            
+        })
+        },
+    }
 }
 </script>
 <style scoped>

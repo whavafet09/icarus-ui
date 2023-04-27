@@ -43,7 +43,15 @@ const router = createRouter({
             props: true
         },
         {
-            path: '/prelandsurveydetails', component:PreLandSurveyDetails
+            path: '/prelandsurveydetails', 
+            component:PreLandSurveyDetails,
+            name:'prelandsurveydetails'
+        },
+        {
+            path: '/prelandsurveydetails/:prelandcardId', 
+            component:PreLandSurveyDetails,
+            name:'prelandsurveydetailsCard',
+            props:true
         },
         {
             path: '/request', component:null

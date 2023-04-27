@@ -21,7 +21,7 @@
                         color="primary"
                         v-bind="props"
                         >
-                        Create Survey
+                        Create Pre Land Survey
                         </v-btn>
                       </v-col>
                   </v-row>
@@ -81,13 +81,15 @@
                     <v-row>
                         <v-col cols="12" sm="6">
                           <v-card-actions>
-                            <v-btn
-                              variant="text"
-                              color="teal-accent-4"
-                              to="/prelandsurveydetails"
-                            >
-                              View Details
-                            </v-btn>
+                            <router-link :to="{name: 'prelandsurveydetailsCard',params:{prelandcardId:item.value}}">  
+                              <v-btn
+                                variant="text"
+                                color="teal-accent-4"
+                              >
+                                View Details
+                              </v-btn>
+                            </router-link>
+
                           </v-card-actions>
                         </v-col>
                         <v-col ccols="12" sm="6">
@@ -130,7 +132,6 @@ export default {
     },
     methods:{
       async fetchPreLandSurveyHeader () {
-      this.salespersons = []
       await AdminHeaderSurveyService.get().then(({ data }) => {
         console.log(data);
         data.forEach(item => {

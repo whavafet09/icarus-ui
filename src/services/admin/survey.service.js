@@ -1,8 +1,8 @@
 import ApiService from '@/services/core/api.service'
 
 const SurveyService = {
-  async get (query) {
-    return ApiService.get(`PreLandSurvey?${query}`)
+  async get (payload) {
+    return ApiService.get(`PreLandSurvey/${payload.Id}`)
   },
 
   async post (payload) {

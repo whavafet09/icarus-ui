@@ -13,7 +13,7 @@
 
             <v-card-text>
             <v-window v-model="tab">
-            <v-form @submit="onSubmitSurvey"> 
+            <v-form @submit.prevent="onSubmitSurvey"> 
                 <v-window-item value="one">
                 <v-card
                 title="Health and Safety"
@@ -654,8 +654,8 @@ export default{
         // alert(this.$route.params.prelandcardId)
     },
     methods:{
-         onSubmitSurvey(e){
-            e.preventDefault()
+         async onSubmitSurvey(){
+            // e.preventDefault()
 
 
             const formData = new FormData();
@@ -709,9 +709,10 @@ export default{
             formData.append("TemperatureArrived",this.temparrived)
             formData.append("PreLandSurveyId",this.$route.params.prelandcardId)
 
-            AdminSurveyService.post(formData).then(response => {
+            await AdminSurveyService.post(formData).then(response => {
                 console.log(response);
                 alert("Successfully save details")
+                this.$router.push('/prelandsurvey')
         }).catch(error => {
             if (error instanceof AxiosError) {
             if (error.code === 422) {
