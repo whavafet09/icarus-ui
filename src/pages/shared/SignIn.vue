@@ -18,6 +18,7 @@
     </div>
 </template>
 <script>
+import { AxiosError, SharedAuthService } from '@/services'
 export default {
     data() {
         return {
@@ -26,10 +27,32 @@ export default {
         };
     },
     methods: {
-        login() {
-            // Your login logic here
-            this.$router.push({ path: '/home' })
-        },
+        async login() {
+            const credentials ={
+                UserName:this.username,
+                Password:this.password
+            }
+            await SharedAuthService.SignIn(credentials).then(response => {
+            
+                if(response.data.token) {
+                    localStorage.setItem('userdata', JSON.stringify(response.data));
+                }
+                console.log(response.data);
+                
+        }).catch(error => {
+            if (error instanceof AxiosError) {
+            if (error.code === 422) {
+                this.$refs.form.setErrors(error.message)
+            }
+            }
+            this.isBusy = false
+        })
+
+
+
+            
+            // this.$router.push({ path: '/home' })
+        }
     },
 }
 </script>

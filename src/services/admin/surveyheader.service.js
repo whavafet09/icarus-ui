@@ -1,12 +1,12 @@
-import ApiService from '@/services/core/api.service'
-
+// import ApiService from '@/services/core/api.service'
+import axios from '../shared/icarus.service'
 const HeaderSurveyService = {
   async get (query) {
-    return ApiService.get(`HeaderPreLandSurvey?${query}`)
+    return axios().get(`HeaderPreLandSurvey?${query}`)
   },
 
   async post (payload) {
-    return ApiService.post('HeaderPreLandSurvey', payload)
+    return axios().post('HeaderPreLandSurvey', payload)
   },
 
 //   async put (payload) {

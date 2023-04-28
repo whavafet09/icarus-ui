@@ -1,12 +1,12 @@
-import ApiService from '@/services/core/api.service'
-
+// import ApiService from '@/services/core/api.service'
+import axios from '../shared/icarus.service'
 const SurveyService = {
   async get (payload) {
-    return ApiService.get(`PreLandSurvey/${payload.Id}`)
+    return axios().get(`PreLandSurvey/${payload.Id}`)
   },
 
   async post (payload) {
-    return ApiService.post('PreLandSurvey', payload)
+    return axios().post('PreLandSurvey', payload)
   },
 
 //   async put (payload) {

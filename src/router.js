@@ -3,7 +3,9 @@ import HomePage from './pages/HomePage.vue'
 import PreLandSurvey from './pages/PreLandSurvey.vue'
 import PreLandSurveyForms from './pages/PreLandSurveyForms.vue'
 import PreLandSurveyDetails from './pages/PreLandSurveyDetails.vue'
+import ProjectFolder from './pages/ProjectFolder.vue'
 import LoginPage from './pages/shared/SignIn.vue'
+
 
 const router = createRouter({
     history: createWebHistory(),
@@ -54,7 +56,9 @@ const router = createRouter({
             props:true
         },
         {
-            path: '/request', component:null
+            path: '/projects', 
+            component:ProjectFolder,
+            name:'projectCreation'
         },
         {
             path: '/login', component:LoginPage,

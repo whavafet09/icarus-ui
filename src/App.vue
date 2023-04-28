@@ -55,6 +55,7 @@
             links: [
                 ['mdi-home', 'Home', '/home'],
                 ['mdi-inbox-arrow-down', 'Pre Land Survey', '/prelandsurvey'],
+                ['mdi-folder', 'Projects', '/projects'],
             ],
          }
     },
