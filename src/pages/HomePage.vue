@@ -1,5 +1,11 @@
 <template>
     <div>
-        <h1>Welcome Home Page</h1>
+        <h1>welcome</h1>
     </div>
 </template>
+<script>
+
+export default {
+    name:'HomePage'
+}
+</script>

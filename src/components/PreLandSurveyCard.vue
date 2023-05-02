@@ -74,12 +74,12 @@
             <div>
               <v-row no-gutters>
                 <v-col cols="12" sm="4" v-for="item in prelandsurveyheaders" :key="item.value">
-                  <v-sheet class="pa-2 ma-2">
+                  <v-sheet class="pa-2 ma-2" >
                     <v-card
-                    :subtitle="item.text"
+                    :title="item.text"
                     >
                     <v-row>
-                        <v-col cols="12" sm="6">
+                        <v-col cols="12" md="6" sm="3">
                           <v-card-actions>
                             <router-link :to="{name: 'prelandsurveydetailsCard',params:{prelandcardId:item.value}}">  
                               <v-btn
@@ -89,11 +89,6 @@
                                 View Details
                               </v-btn>
                             </router-link>
-
-                          </v-card-actions>
-                        </v-col>
-                        <v-col ccols="12" sm="6">
-                          <v-card-actions>
                             <router-link :to="{name: 'prelandsurveyformsCard',params:{prelandcardId:item.value}}">
                             <v-btn
                                 variant="text"
@@ -102,8 +97,6 @@
                                 Add Details
                               </v-btn>
                             </router-link>
-
-                            
                           </v-card-actions>
                         </v-col>
                     </v-row>
@@ -154,6 +147,7 @@ export default {
                 alert("Successfully Save");
                 this.prelandsurveyName = ''
                 this.dialog = false
+                window.location.reload();
                 
         }).catch(error => {
             if (error instanceof AxiosError) {

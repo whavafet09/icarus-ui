@@ -1,7 +1,12 @@
 <template>
-    <div class="d-flex align-center justify-center" style="height: 100vh">
-        <v-sheet width="400" class="mx-auto">
-            <h1 class="d-flex align-center justify center">Sign In Icarus</h1>
+    <div class="d-flex align-center justify-center" style="height: 100vh;">
+        <v-sheet width="400" class="mx-auto" >
+            <v-img
+                src="assets/logo/ica.png"
+                height="150px"
+                ></v-img>
+                <!-- <p>{{ $store.state.user.email }}</p> -->
+            <h2 class="d-flex align-center">Sign in</h2>
             <v-form fast-fail @submit.prevent="login">
                 <v-text-field variant="outlined" v-model="username" label="User Name"></v-text-field>
 
@@ -32,27 +37,28 @@ export default {
                 UserName:this.username,
                 Password:this.password
             }
-            await SharedAuthService.SignIn(credentials).then(response => {
+        await SharedAuthService.SignIn(credentials).then(response => {
             
                 if(response.data.token) {
-                    localStorage.setItem('userdata', JSON.stringify(response.data));
+                    localStorage.setItem('user-token', JSON.stringify(response.data.token));
+                    localStorage.setItem('user-email', JSON.stringify(response.data.user.email));
+                    localStorage.setItem('user-role', JSON.stringify(response.data.user.userRole.userRoleName));
+                    // this.$store.dispatch('[user]',response.data.user)
+                    this.$store.commit('setUser',response.data.user)
+                    this.$router.push({name:'home'})
+                    this.$router.go()
+                    
                 }
-                console.log(response.data);
-                
+      
         }).catch(error => {
             if (error instanceof AxiosError) {
             if (error.code === 422) {
                 this.$refs.form.setErrors(error.message)
             }
             }
-            this.isBusy = false
-        })
-
-
-
             
-            // this.$router.push({ path: '/home' })
-        }
+        })
+        },
     },
 }
 </script>

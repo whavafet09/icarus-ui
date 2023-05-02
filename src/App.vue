@@ -12,24 +12,26 @@
             size="64"
             ></v-avatar>
 
-            <div>john@google.com</div>
+            <div>{{ $store.getters.loadUserEmail }}</div>
+            <div>{{ $store.getters.loadUserRole }}</div>
         </v-sheet>
 
         <v-divider></v-divider>
 
         <v-list>
             <v-list-item
-            v-for="[icon, text, url] in links"
-            :key="icon"
-            :to="url"
+            v-for="(item, i) in items"
+            :key="i"
+            :to="item.url"
             >
             <template v-slot:prepend>
-                <v-icon>{{ icon }}</v-icon>
-            </template>
+          <v-icon :icon="item.icon"></v-icon>
+        </template>
 
-            <v-list-item-title>{{ text }}</v-list-item-title>
+        <v-list-item-title v-text="item.text"></v-list-item-title>
             </v-list-item>
         </v-list>
+        <v-btn @click="logout">logout</v-btn>
     </v-navigation-drawer>
 
     <v-app-bar>
@@ -48,16 +50,48 @@
   </v-app>
 </template>
 <script>
+import { AdminSideMenu } from './navigation/admin-menu'
+import { UserSideMenu } from './navigation/user-menu'
   export default {
     data() { 
         return {
             drawer: null,
-            links: [
-                ['mdi-home', 'Home', '/home'],
-                ['mdi-inbox-arrow-down', 'Pre Land Survey', '/prelandsurvey'],
-                ['mdi-folder', 'Projects', '/projects'],
-            ],
+            items:[],
+            // links: [
+            // ['mdi-home', 'Home', '/home'],
+            //     ['mdi-inbox-arrow-down', 'Pre Land Survey', '/prelandsurvey'],
+            //     ['mdi-folder', 'Projects', '/projects']
+            // ],
          }
     },
+    mounted(){
+     this.menuItems()
+    },
+    methods:{
+      menuItems() {
+      const user = this.$store.getters.loadUserRole
+
+      if (user) {
+        if (user === 'Admin') {
+          return this.items = AdminSideMenu         
+          console.log(this.items)
+        }
+
+        if (user === 'User') {
+
+            return this.items = UserSideMenu
+            console.log(this.items)
+        }
+
+      }
+    },
+    logout(){
+        localStorage.removeItem("user-token");
+        localStorage.removeItem("user-email");
+        localStorage.removeItem("user-role");
+        this.$store.commit('logout')
+        this.$router.push("/login")
+      }
+    }
   }
 </script>

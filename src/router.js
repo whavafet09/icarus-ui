@@ -11,20 +11,15 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
-            path: '/',redirect:'/home'
+            path: '/',redirect:'/home',
+            
         },
         {
-            path: '/home', component:HomePage
+            path: '/home', component:HomePage,
+            name:'home'
         },
         {
             path: '/coaches', component:null
-        },
-        {
-            path: '/coaches/:id', component:null, children:[
-                {
-                    path: 'contact', component:null
-                }
-            ]
         },
         {
             path: '/prelandsurvey', 
@@ -61,7 +56,9 @@ const router = createRouter({
             name:'projectCreation'
         },
         {
-            path: '/login', component:LoginPage,
+            path: '/login', 
+            component:LoginPage,
+            name: 'login',
             meta: {
                 layout: 'auth'
               }
@@ -72,6 +69,20 @@ const router = createRouter({
     ],
 });
 
-// router.replace('/login');
+router.beforeEach((to, from, next) => {
+    var token = localStorage.getItem("user-token")
+  
+    if (to.name == 'login') {
+      if (token) {
+        next({name: 'home'})
+      }
+    } else {
+      if (token == null ) {
+        next({name: 'login'})
+      }
+    }
+  
+    next()
+  })
 
 export default router;
