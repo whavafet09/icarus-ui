@@ -147,7 +147,7 @@ export default {
                 alert("Successfully Save");
                 this.prelandsurveyName = ''
                 this.dialog = false
-                window.location.reload();
+                this.$router.go()
                 
         }).catch(error => {
             if (error instanceof AxiosError) {

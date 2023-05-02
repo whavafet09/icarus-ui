@@ -72,15 +72,15 @@ import { UserSideMenu } from './navigation/user-menu'
       const user = this.$store.getters.loadUserRole
 
       if (user) {
-        if (user === 'Admin') {
+        if (user === 'admin') {
           return this.items = AdminSideMenu         
-          console.log(this.items)
+          //console.log(this.items)
         }
 
-        if (user === 'User') {
+        if (user === 'user') {
 
             return this.items = UserSideMenu
-            console.log(this.items)
+            //console.log(this.items)
         }
 
       }

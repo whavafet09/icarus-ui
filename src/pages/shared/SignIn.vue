@@ -10,7 +10,7 @@
             <v-form fast-fail @submit.prevent="login">
                 <v-text-field variant="outlined" v-model="username" label="User Name"></v-text-field>
 
-                <v-text-field variant="outlined" v-model="password" label="password"></v-text-field>
+                <v-text-field type="password" variant="outlined" v-model="password" label="password"></v-text-field>
                 <a href="#" class="text-body-2 font-weight-regular">Forgot Password?</a>
 
                 <v-btn type="submit" color="primary" block class="mt-2">Sign in</v-btn>

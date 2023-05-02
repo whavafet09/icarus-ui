@@ -25,6 +25,7 @@
                     <h3>Temperature of area when you arrived : <span>{{ temp_arrived }}</span></h3>
                     <h3>Is there a cell reception ( safety reason ) : <span>{{ is_cell_reception }}</span></h3>
                     <h3>Is it safe to proceed to the area : <span>{{ is_safe }}</span></h3>
+                    
                 </v-card-text>
 
             <v-card-actions>
@@ -42,7 +43,7 @@
                     <v-card-text class="pb-0">
                         <v-row>
                             <v-col cols="12" sm="4">
-                                <a href="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" target="_blank" download>
+                                <a href="https://localhost:7131/wwwroot/Images/HealthAndSafety/Pre Land Survey 01\KTM-690-Duke-R-2016-photo.jpg" target="_blank" download>
                                     <div class="icon-holder icon-download">attachment1</div>
                                 </a>
                                 <!-- <v-img
